@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans:400,700);
+
 #centre {
 border:1px solid #202020;
 border-bottom:0;
@@ -70,17 +72,19 @@ text-decoration:underline;
 
 body {
 background-color:#CDCDCD;
-font-family:Verdana, Arial, Helvetica, sans-serif;
-font-size:0.75em;
+/*font-family:Verdana, Arial, Helvetica, sans-serif;*/
+/* font-family: 'Ubuntu', sans-serif; */
+font-family: 'Droid Sans', sans-serif;
+font-size:0.95em;
 }
 
 h1 {
-font-size:1.6em;
+font-size:1.8em;
 margin:0.5em 0.5em 1em 0;
 }
 
 h2 {
-font-size:1.2em;
+font-size:1.3em;
 margin:0.8em 0.5em 0.3em 0.6em;
 }
 
@@ -102,3 +106,5 @@ margin:0.6em 0.5em 0.2em 1.5em;
 p {
 margin:1px 0.5em 0.5em 1.5em;
 }
+
+img, object, embed { max-width: 100%; height: auto; }

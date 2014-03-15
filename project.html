@@ -14,16 +14,80 @@
             <ul class="menuhaut">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="project.html">Project</a></li>
-                <li><a href="about.html">About the Copy Cats</a></li>
+                <li><a href="about_us.html">About the Copy Cats</a></li>
                 <li><a href="code.html">Code</a></li>
             </ul>
           </div>
 
           <div id="centre">
-            <h1>PROJECT DESCRIPTION</h1>
-                            <h2>PROJECT DESCRIPTION</h2>
-                    <p>This design is released under the Creative Common Attribution Licence</p>
-                <h2>Respect the standards</h2>
+            <h1>Plagiarism Detection: A Brief Overview</h1>
+                A motivating example -- consider these three paragraphs from Harry Potter:
+
+                <br /><br />
+                <p>
+                But on the edge of town, drills were driven out of his mind by something else. As he sat in the usual morning traffic jam, he couldn't help noticing that there seemed to be a lot of strangely dressed people about. People in cloaks. Mr. Dursley couldn't bear people who dressed in funny clothes -- the getups you saw on young people! He supposed this was some stupid new fashion. He drummed his fingers on the steering wheel and his eyes fell on a huddle of these weirdos standing quite close by. They were whispering excitedly together.
+                </p>
+
+                <p>
+                Mr. Dursley was enraged to see that a couple of them weren't young at all; why, that man had to be older than he was, and wearing an emerald-green cloak! The nerve of him! But then it struck Mr. Dursley that this was probably some silly stunt -- these people were obviously collecting for something...yes, that would be it. The traffic moved on and a few minutes later, Mr. Dursley arrived in the parking lot, his mind back on drills.
+                </p>
+
+                <p>
+                The evil of the actual disparity in their ages (and Mr. Woodhouse had not married early) was much increased by his constitution and habits; for having been a valetudinarian all his life, without activity of mind or body, he was a much older man in ways than in years; and though everywhere beloved for the friendliness of his heart and his amiable temper, his talents could not have recommended him at any time.
+                </p>
+
+                <h2>Intrinsic Detection</h2>
+                <p>
+                "Hmmm...that third paragraph seems much more sophisticated than the first two." <br />
+                <em>
+                    Use stylometric features from the text to detect passages that are "different" from the rest of the passages.
+                </em>
+                </p>
+
+                <h2>Extrinsic Detection</h2>
+                <p>
+                "Hmmm...that third paragraph is from Emma, not Harry Potter and the Sorcerer's Stone." <br />
+                <em>
+                    Find passages that are similar to passages in an external corpus.
+                </em>
+                </p>
+
+                
+
+
+                <h2>Intrinsic Plagiarism Detection</h2>
+                    <img src="intrinsic_pipeline.jpg" />
+                    The goal of intrinsic plagiarism detection is to find passages within a document which appear to be significantly different from the rest of the document. In order to do so, we break the process down into three steps. 
+                    <ul>
+                        <li>Atomization -- Deconstruct a document into passages.</li>
+                        <li>Feature Extraction -- Quantify the style of each passage by extracting 
+                            stylometric features based on linguistic properties of the text. Each passage 
+                            is represented numerically as a vector of feature values. 
+                        </li>
+                        <li>Classification -- Compare the feature vectors of passages to one another; those 
+                            passages that are significantly different will have higher confidences of 
+                            plagiarism. Return a confidence that a passage was plagiarized. 
+                        </li>
+                    </ul>
+
+                <h2>Extrinsic</h2>
+                    <img src="extrinsic_pipeline.jpg" />
+                    Extrinsic plagiarism detection is given more information to work with: in addition
+                    to a suspicious document, we are also given a number of <em>external</em> documents,
+                    or <em>source</em> documents to compare to the suspicious document. The extrinsic
+                    detection process can be broken into three steps:
+                    <ul>
+                        <li>Atomization -- Deconstruct a document into passages.</li>
+                        <li>Fingerprinting -- Compress a passage of text into a <em>fingerprint</em>,
+                            a set of integers that represent the passage. The integers come from applying
+                            a <em>hash function</em> to some subset of <em>n</em>-grams of the passage.
+                        </li>
+                        <li>Fingerprint Matching -- Passages are now represented by fingerprints, which are
+                            simply sets of integers. To compare a fingerprint from the suspicious document 
+                            with source fingerprints, we can use set similarity measures. Fingerprints
+                            with high similarity indicate a high confidence of the presence of plagiarism. 
+                        </li>
+                    </ul>
             </div>
         <div id="pied">Design by <a href="http://nicolas.freezee.org">Nicolas Fafchamps</a></div>
     </div>
